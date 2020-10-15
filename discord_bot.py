@@ -61,10 +61,12 @@ async def on_message(message):
                         await message.channel.send("!Turn on Lights | Turns on Light next to computer")
                         await message.channel.send("!Turn off Lights | Turns off Light next to computer")
         if message.content == "!Wake Rowan Up":
-                        lightcontroll(3,False)
-                        lightcontroll(4,False)
-                        lightcontroll(5,False)
+                        while i < 10000:
+                            lightcontroll(3,False)
+                            lightcontroll(4,False)
+                            lightcontroll(5,False)
                         
+
 
 
 
