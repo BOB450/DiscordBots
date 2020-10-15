@@ -39,20 +39,20 @@ async def on_message(message):
     if "!" in message.content:
         print("command")
         if message.content == "!Turn on Lights":
-                lightcontroll(1,True)
+                lightcontroll([1],True)
                 await message.channel.send("Turning on lights")
         if message.content == "!Turn off Lights":
-                        lightcontroll(1,False)
+                        lightcontroll([1],False)
                         await message.channel.send("Turning off lights")
         if message.content == "!Turn on Room Lights":
-                        lightcontroll(3,True)
-                        lightcontroll(4,True)
-                        lightcontroll(5,True)
+                        lightcontroll([3,4,5,6],True)
+                        #lightcontroll(4,True)
+                        #lightcontroll(5,True)
                         await message.channel.send("Turning on lights")
         if message.content == "!Turn off Room Lights":
-                        lightcontroll(3,False)
-                        lightcontroll(4,False)
-                        lightcontroll(5,False)
+                        lightcontroll([3,4,5,6],False)
+                        #lightcontroll(4,False)
+                        #lightcontroll(5,False)
                         await message.channel.send("Turning off lights")
         if message.content == "!help":
                         await message.channel.send("This Bot controlls Rowans Lights")
