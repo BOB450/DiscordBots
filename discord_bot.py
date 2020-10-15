@@ -16,7 +16,6 @@ b = Bridge('192.168.0.4')
 TOKEN = "NzYwNjE0MTE0OTg4NTIzNTMx.X3OnGA.IJuwyOR7ZkCY-a_gS3yS4-zh0Ps"
 GUILD = "Simply survival MC server"
 
-numof = 0
 
 client = discord.Client()
 bot = commands.Bot(command_prefix='!')
@@ -59,6 +58,13 @@ async def on_message(message):
                         await message.channel.send("This Bot controlls Rowans Lights")
                         await message.channel.send("!Turn on Room Lights | Turns on by bedroom lights")
                         await message.channel.send("!Turn off Room Lights | Turns off by bedroom lights")
+                        await message.channel.send("!Turn on Lights | Turns on Light next to computer")
+                        await message.channel.send("!Turn off Lights | Turns off Light next to computer")
+        if message.content == "!Wake Rowan Up":
+                        lightcontroll(3,False)
+                        lightcontroll(4,False)
+                        lightcontroll(5,False)
+                        
 
 
 
