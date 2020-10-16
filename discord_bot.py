@@ -6,6 +6,7 @@ from discord.ext import commands
 
 from phue import Bridge
 import logging
+import time
 logging.basicConfig()
 
 b = Bridge('192.168.0.4')
@@ -31,10 +32,14 @@ async def on_message(message):
     #------------Messages------------------------------------------------------
     if len(message.content) == 6 and message.content.isupper():
         print("Code: ",message.content)
+        code = message.content
         res = "The Among Us code is: ",message.content
         await message.channel.send(res)
         await message.channel.send("To use code go to online and type the code into the box")
         
+        if message.content  == "!code":
+            print(code)
+            await message.channel.send("The current among us code is: ",code)
     #-----------Commands-------------------------------------------------------
     if "!" in message.content:
         print("command")
@@ -60,13 +65,6 @@ async def on_message(message):
                         await message.channel.send("!Turn off Room Lights | Turns off by bedroom lights")
                         await message.channel.send("!Turn on Lights | Turns on Light next to computer")
                         await message.channel.send("!Turn off Lights | Turns off Light next to computer")
-        if message.content == "!Wake Rowan Up":
-                        while i < 10000:
-                            lightcontroll(3,False)
-                            lightcontroll(4,False)
-                            lightcontroll(5,False)
-                        
-
 
 
 
