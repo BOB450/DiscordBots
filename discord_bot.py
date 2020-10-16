@@ -35,6 +35,7 @@ async def on_message(message):
     if len(message.content) == 6 and message.content.isupper():
         print("Code: ",message.content)
         code = message.content
+        f.write("%d\r\n", )
         res = "The Among Us code is: ",message.content
         await message.channel.send(res)
         await message.channel.send("To use code go to online and type the code into the box")
