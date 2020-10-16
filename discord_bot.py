@@ -37,9 +37,9 @@ async def on_message(message):
         await message.channel.send(res)
         await message.channel.send("To use code go to online and type the code into the box")
         
-        if message.content  == "!code":
-            print(code)
-            await message.channel.send("The current among us code is: ",code)
+    if message.content  == "!code":
+        print(code)
+        await message.channel.send("The current among us code is: ",code)
     #-----------Commands-------------------------------------------------------
     if "!" in message.content:
         print("command")
