@@ -18,7 +18,7 @@ TOKEN = "NzYwNjE0MTE0OTg4NTIzNTMx.X3OnGA.IJuwyOR7ZkCY-a_gS3yS4-zh0Ps"
 GUILD = "Simply survival MC server"
 
 #create data file 
-f= open("gbot_data.txt","w+")
+
 
 client = discord.Client()
 bot = commands.Bot(command_prefix='!')
@@ -33,16 +33,20 @@ async def on_message(message):
     print("Received a message:", message.content)
     #------------Messages------------------------------------------------------
     if len(message.content) == 6 and message.content.isupper():
+        f= open("gbot_data.txt","w+")
         print("Code: ",message.content)
         code = message.content
-        f.write("%d\r\n", )
+        f.write(code)
         res = "The Among Us code is: ",message.content
-        await message.channel.send(res)
-        await message.channel.send("To use code go to online and type the code into the box")
+        #await message.channel.send(res)
+        #await message.channel.send("To use code go to online and type the code into the box")
         
     if message.content  == "!code":
-        print(code)
-        await message.channel.send("The current among us code is: ",code)
+        f=open("gbot_data.txt", "r")
+        rcode =f.read()
+        messagecode = 'The current among us code is: '+ rcode
+        print(messagecode)
+        await message.channel.send(messagecode)
     #-----------Commands-------------------------------------------------------
     if "!" in message.content:
         print("command")
@@ -63,6 +67,8 @@ async def on_message(message):
                         #lightcontroll(5,False)
                         await message.channel.send("Turning off lights")
         if message.content == "!help":
+                        await message.channel.send("!code | Recive the latest among us code")
+                        await message.channel.send("------------------------------------------------------------------------------------")
                         await message.channel.send("This Bot controlls Rowans Lights")
                         await message.channel.send("!Turn on Room Lights | Turns on by bedroom lights")
                         await message.channel.send("!Turn off Room Lights | Turns off by bedroom lights")
