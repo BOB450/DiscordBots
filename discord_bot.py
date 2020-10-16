@@ -17,6 +17,8 @@ b = Bridge('192.168.0.4')
 TOKEN = "NzYwNjE0MTE0OTg4NTIzNTMx.X3OnGA.IJuwyOR7ZkCY-a_gS3yS4-zh0Ps"
 GUILD = "Simply survival MC server"
 
+#create data file 
+f= open("gbot_data.txt","w+")
 
 client = discord.Client()
 bot = commands.Bot(command_prefix='!')
