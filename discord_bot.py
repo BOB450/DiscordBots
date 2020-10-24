@@ -47,6 +47,15 @@ async def on_message(message):
         messagecode = 'The current among us code is: '+ rcode
         print(messagecode)
         await message.channel.send(messagecode)
+    
+    if message.content == "!vote":
+        v= open("amongvote.txt","w+")
+        v.write("0")
+        num = v.read()  
+        xnum = int(num) + 1
+        strnum = str(xnum)
+        v.write(strnum)
+        await message.channel.send(xnum+' People want to play among us')
     #-----------Commands-------------------------------------------------------
     if "!" in message.content:
         print("command")
